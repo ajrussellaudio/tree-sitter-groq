@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-groq",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Query language made at Sanity.io for filtering and projecting JSON documents",
   "repository": "https://github.com/ajrussellaudio/tree-sitter-groq",
   "license": "MIT",
