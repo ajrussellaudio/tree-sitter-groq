@@ -10,7 +10,8 @@
         "groq"
       ],
       "injection-regex": "^groq$",
-      "class-name": "TreeSitterGroq"
+      "class-name": "TreeSitterGroq",
+      "highlights": "queries/highlights.scm"
     }
   ],
   "metadata": {
