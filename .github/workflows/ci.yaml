@@ -30,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest] # No macos-latest because Swift build is failing: https://github.com/tree-sitter/tree-sitter/issues/4589
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
