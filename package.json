@@ -39,7 +39,7 @@
   },
   "peerDependenciesMeta": {
     "tree-sitter": {
-      "optional": false
+      "optional": true
     }
   },
   "scripts": {
