@@ -91,16 +91,16 @@ module.exports = grammar({
       $.null,
     ),
 
-    string: $ => choice(
+    string: _ => choice(
       seq('"', repeat(choice(/[^"\\]+/, /\\./)), '"'),
       seq('\'', repeat(choice(/[^'\\]+/, /\\./)), '\''),
     ),
 
-    number: $ => /\d+(\.\d+)?([eE][+-]?\d+)?[i]?/,
+    number: _ => /\d+(\.\d+)?([eE][+-]?\d+)?[i]?/,
 
-    true: $ => 'true',
-    false: $ => 'false',
-    null: $ => 'null',
+    true: _ => 'true',
+    false: _ => 'false',
+    null: _ => 'null',
 
     array: $ => seq(
       '[',
@@ -160,24 +160,24 @@ module.exports = grammar({
       ')',
     ),
 
-    parent: $ => '^',
-    this: $ => '@',
-    star: $ => '*',
+    parent: _ => '^',
+    this: _ => '@',
+    star: _ => '*',
 
-    identifier: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    identifier: _ => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
     parameter: $ => seq('$', $.identifier),
 
     spread_operator: $ => prec.left(10, seq('...', optional($._expression))),
 
-    comment: $ => token(seq('//', /.*/)),
+    comment: _ => token(seq('//', /.*/)),
   },
 });
 
 /**
  *
- * @param sep
- * @param rule
+ * @param {string} sep
+ * @param {Rule} rule
  */
 function sepBy1(sep, rule) {
   return seq(rule, repeat(seq(sep, rule)));
@@ -185,8 +185,8 @@ function sepBy1(sep, rule) {
 
 /**
  *
- * @param sep
- * @param rule
+ * @param {string} sep
+ * @param {Rule} rule
  */
 function sepBy(sep, rule) {
   return optional(sepBy1(sep, rule));
